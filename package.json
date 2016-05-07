@@ -22,6 +22,8 @@
     "gulp-eslint": "^2.0.0",
     "react": "^15.0.2",
     "react-router": "^2.4.0",
-    "flux": "^2.1.1"
+    "flux": "^2.1.1",
+    "materialize-css": "^0.97.6",
+    "react-dom": "^15.0.2"
   }
 }

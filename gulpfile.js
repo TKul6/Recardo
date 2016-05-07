@@ -21,13 +21,18 @@ var config = {
     paths : {
         html : "./src/*.html",
         js: "./src/**/*.js",
-        /*css : [
-            "node_modules/bootstrap/dist/css/bootstrap.min.css",
+        css : [
+            "node_modules/materialize-css/bin/materialize.css"],/*,
             "node_modules/bootstrap/dist/css/bootstrap-theme.min.css",
             "node_modules/toastr/build/toastr.css",
             "node_modules/jquery-confirm/css/jquery-confirm.css"
 
         ],*/
+        fonts: {
+            roboto: "node_modules/materialize-css/dist/font/roboto/*.*"
+
+        },
+
         images: "./src/images/*",
         favIcon: "./src/favicon.ico",
         dist : "./build",
@@ -72,11 +77,21 @@ gulp.task('images',function(){
         pipe(gulp.dest(config.paths.dist + "/images"))
 });
 
+gulp.task('fonts',function(){
+
+    //Send roberto
+    gulp.src(config.paths.fonts.roboto)
+        .pipe(gulp.dest(config.paths.dist + "/fonts/roboto"));
+
+
+});
+
+/*
 gulp.task('fav',function(){
     gulp.src(config.paths.favIcon).
         pipe(gulp.dest(config.paths.dist))
 });
-
+*/
 gulp.task('lint',function(){
     return gulp.src(config.paths.js).
         pipe(eslint({config: 'eslint.config.json'})).
@@ -98,4 +113,4 @@ gulp.task('bundle-js',function(){
         .pipe(server.reload())
 });
 
-gulp.task('default',['open','publish-html','bundle-js','images', 'fav','lint', 'watch','css']);
+gulp.task('default',['open','publish-html','bundle-js','images', 'fonts','lint', 'watch','css']);
