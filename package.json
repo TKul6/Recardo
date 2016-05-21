@@ -24,6 +24,8 @@
     "react-router": "^2.4.0",
     "flux": "^2.1.1",
     "materialize-css": "^0.97.6",
-    "react-dom": "^15.0.2"
+    "react-dom": "^15.0.2",
+    "babelify": "^7.3.0",
+    "babel-preset-react": "^6.5.0"
   }
 }

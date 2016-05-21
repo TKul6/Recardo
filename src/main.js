@@ -3,19 +3,17 @@
  */
 "use strict";
 
-var React = require('react');
-var ReactDom = require('react-dom');
 
-var Menu = React.createClass({
-
-    render : function(){
-        return (<div>Hello, World</div>) }
-    });
+import React from 'react';
+import ReactDom from'react-dom';
 
 
 
-ReactDom.render(<Menu />,document.getElementById("main"));
+ class Home extends React.Component {
+    render() {
+        return <div>Hello World Tomer K </div>;
+    }}
 
 
 
-
+ReactDom.render(<Home />,document.getElementById("main"));

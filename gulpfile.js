@@ -13,6 +13,8 @@ var source = require('vinyl-source-stream'); //
 var concat = require('gulp-concat'); //Concates files
 var eslint =require('gulp-eslint');//Lint JS file, including jsx
 
+var babelify = require('babelify');
+
 
     //Config
 var config = {
@@ -104,13 +106,21 @@ gulp.task('watch',function(){
 });
 
 gulp.task('bundle-js',function(){
-    browserify(config.paths.mainJs)
-        .transform(reactify)
+    return  browserify({
+        extensions: ['.js'],
+        entries: config.paths.mainJs
+    })
+        .transform(babelify.configure({
+            ignore: /(bower_components)|(node_modules)/,
+            presets: ["es2015", "react"]
+        }))
         .bundle()
-        .on('error',console.error.bind(console))
+        .on("error", function (err) { console.log("Error : " + err.message); })
         .pipe(source('bundle.js'))
         .pipe(gulp.dest(config.paths.dist  +"/Scripts"))
-        .pipe(server.reload())
+        .pipe(server.reload());
+
+
 });
 
 gulp.task('default',['open','publish-html','bundle-js','images', 'fonts','lint', 'watch','css']);
