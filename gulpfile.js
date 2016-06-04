@@ -23,17 +23,13 @@ var config = {
     paths : {
         html : "./src/*.html",
         js: "./src/**/*.js",
-        css : [
-            "node_modules/materialize-css/bin/materialize.css"],/*,
-            "node_modules/bootstrap/dist/css/bootstrap-theme.min.css",
+        css : ["./src/style/main.css",
+            "node_modules/bootstrap/dist/css/bootstrap-theme.min.css"],
+           // "node_modules/materialize-css/bin/materialize.css"],/*,
+            /*"node_modules/bootstrap/dist/css/bootstrap-theme.min.css",
             "node_modules/toastr/build/toastr.css",
-            "node_modules/jquery-confirm/css/jquery-confirm.css"
+            "node_modules/jquery-confirm/css/jquery-confirm.css"*/
 
-        ],*/
-        fonts: {
-            roboto: "node_modules/materialize-css/dist/font/roboto/*.*"
-
-        },
 
         images: "./src/images/*",
         favIcon: "./src/favicon.ico",
@@ -82,8 +78,8 @@ gulp.task('images',function(){
 gulp.task('fonts',function(){
 
     //Send roberto
-    gulp.src(config.paths.fonts.roboto)
-        .pipe(gulp.dest(config.paths.dist + "/fonts/roboto"));
+   /* gulp.src(config.paths.fonts.roboto)
+        .pipe(gulp.dest(config.paths.dist + "/fonts/roboto"));*/
 
 
 });
@@ -103,6 +99,7 @@ gulp.task('lint',function(){
 gulp.task('watch',function(){
     gulp.watch(config.paths.html,['publish-html']);
     gulp.watch(config.paths.js,['bundle-js','lint']);
+    gulp.watch(config.paths.mainJs,['bundle-js','lint']);
 });
 
 gulp.task('bundle-js',function(){
