@@ -6,12 +6,13 @@
 
 import React from 'react';
 import ReactDom from'react-dom';
-import {lightBlueA700,cyan900,grey700,teal500} from 'material-ui/styles/colors';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {lightBlueA700,cyan900,grey700,teal500} from '../../node_modules/material-ui/styles/colors';
+import getMuiTheme from '../../node_modules/material-ui/styles/getMuiTheme';
+import MuiThemeProvider from '../../node_modules/material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import FontIcon from 'material-ui/FontIcon';
 
+import Login from 'login'
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -26,7 +27,9 @@ const muiTheme = getMuiTheme({
     render() {
         return  <MuiThemeProvider muiTheme={muiTheme}>
         <div>
-            <div className="row">header</div>
+            <div className="row">header
+            <Login userName='' />jjjj
+            </div>
             <div className="divider"></div>
                 <div className="container">
                     <div className="col s6 offset-s3">
