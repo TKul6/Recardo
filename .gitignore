@@ -250,5 +250,6 @@ ModelManifest.xml
 #Node_Modules
 **.node_modules/*.*
 
-
+#Web storm files
+**/.idea/**
 
